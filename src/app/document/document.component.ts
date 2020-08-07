@@ -1,5 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
+export class Alert {
+  constructor(
+    public id: number,
+    public description: string,
+    public done: boolean,
+    public targetDate: Date
+  ) {
+
+  }
+}
+
 @Component({
   selector: 'app-document',
   templateUrl: './document.component.html',
@@ -8,9 +19,9 @@ import { Component, OnInit } from '@angular/core';
 export class DocumentComponent implements OnInit {
 
   alerts = [
-    {id:1, description:'Correctness'},
-    {id:2, description:'Clarity'},
-    {id:3, description:'Engagement'}
+    new Alert(1, 'Correctness', false, new Date()),
+    new Alert(2, 'Clarity', false, new Date()),
+    new Alert(3, 'Engagement', false, new Date())
   ]
 
   constructor() { }

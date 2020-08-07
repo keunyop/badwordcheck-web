@@ -2,14 +2,16 @@
     <caption>All alerts</caption>
     <thead>
         <tr>
-            <th>id</th>
             <th>description</th>
+            <th>Target Date</th>
+            <th>Is Completed?</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let alert of alerts">
-            <td>{{alert.id}}</td>
             <td>{{alert.description}}</td>
+            <td>{{alert.targetDate | date | uppercase}}</td>
+            <td>{{alert.done}}</td>
         </tr>
     </tbody>
 
