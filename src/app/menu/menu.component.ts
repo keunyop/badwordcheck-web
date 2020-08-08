@@ -12,4 +12,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openNav() {
+    document.getElementById("side-menu").style.width = "250px";
+  }
+  
+  closeNav() {
+    document.getElementById("side-menu").style.width = "0";
+  }
+
 }
