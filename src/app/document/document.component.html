@@ -1,18 +1,20 @@
-<table border="1">
-    <caption>All alerts</caption>
-    <thead>
-        <tr>
-            <th>description</th>
-            <th>Target Date</th>
-            <th>Is Completed?</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let alert of alerts">
-            <td>{{alert.description}}</td>
-            <td>{{alert.targetDate | date | uppercase}}</td>
-            <td>{{alert.done}}</td>
-        </tr>
-    </tbody>
+<h1>All alerts</h1>
 
-</table>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>description</th>
+                <th>Target Date</th>
+                <th>Is Completed?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let alert of alerts">
+                <td>{{alert.description}}</td>
+                <td>{{alert.targetDate | date | uppercase}}</td>
+                <td>{{alert.done}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
