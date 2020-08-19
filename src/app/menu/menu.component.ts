@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
+  constructor(
+    public hardcodedAuthenticationService: HardcodedAuthenticationService
+  ) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openNav() {
-    document.getElementById("side-menu").style.width = "250px";
-  }
-  
-  closeNav() {
-    document.getElementById("side-menu").style.width = "0";
+    document.getElementById('side-menu').style.width = '250px';
   }
 
+  closeNav() {
+    document.getElementById('side-menu').style.width = '0';
+  }
 }

@@ -2,8 +2,8 @@
     <a href="javascript:void(0)" class="closebtn" (click)=closeNav()>&times; Close</a>
     <!-- <a href="/">Home</a> -->
     <!-- <a href="">글 불러오기</a> -->
-    <!-- <a href="/login">Login</a> -->
-    <a routerLink="/logout">Logout</a>
+    <a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login">Login</a>
+    <a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/logout">Logout</a>
 </div>
 
 <span style="font-size:30px;cursor:pointer" (click)=openNav()>&#9776;</span>
