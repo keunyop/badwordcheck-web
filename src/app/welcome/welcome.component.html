@@ -3,3 +3,11 @@
 <div class="container">
     Welcom {{name}}. You can manage your documents <a routerLink="/document">here</a>
 </div>
+
+<div class="container">
+    <button (click)="getWelcomeMessage()" class="btn btn-success">Get Welcome Message</button>
+</div>
+
+<div class="container" *ngIf="welcomeMessageFromService">
+    {{welcomeMessageFromService}}
+</div>
