@@ -1,5 +1,7 @@
 <h1>All alerts</h1>
 
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
 <div class="container">
     <table class="table">
         <thead>
@@ -7,6 +9,7 @@
                 <th>description</th>
                 <th>Target Date</th>
                 <th>Is Completed?</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +17,7 @@
                 <td>{{alert.description}}</td>
                 <td>{{alert.targetDate | date | uppercase}}</td>
                 <td>{{alert.done}}</td>
+                <td><button (click)="deleteAlert(alert.id)" class="btn btn-warning">Delete</button></td>
             </tr>
         </tbody>
     </table>

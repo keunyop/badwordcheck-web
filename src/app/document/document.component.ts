@@ -17,12 +17,25 @@ export class Alert {
 })
 export class DocumentComponent implements OnInit {
   alerts: Alert[];
+  message: string;
 
   constructor(private alertService: AlertDataService) {}
 
   ngOnInit(): void {
+    this.refreshAlerts();
+  }
+
+  refreshAlerts() {
     this.alertService.retrieveAllAlerts('kevin').subscribe((response) => {
       this.alerts = response;
     });
+  }
+
+  deleteAlert(id) {
+    this.alertService.deleteAlert('kevin', id).subscribe((response) => {
+      this.message = `Delete of Alert ${id} Successful!`;
+    });
+
+    this.refreshAlerts();
   }
 }

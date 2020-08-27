@@ -12,7 +12,11 @@ export class AlertDataService {
 
   retrieveAllAlerts(username) {
     return this.http.get<Alert[]>(
-      `http://localhost:8081//users/${username}/alerts`
+      `http://localhost:8081/users/${username}/alerts`
     );
+  }
+
+  deleteAlert(username, id) {
+    return this.http.delete(`http://localhost:8081/users/${username}/alerts/${id}`)
   }
 }
