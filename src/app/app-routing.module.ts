@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
+import { AlertComponent } from './alert/alert.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponent,
+    canActivate: [RouteGuardService],
+  },
+  {
+    path: 'alerts/:id',
+    component: AlertComponent,
     canActivate: [RouteGuardService],
   },
   { path: '**', component: ErrorComponent },

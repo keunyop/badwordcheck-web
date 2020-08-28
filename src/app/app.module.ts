@@ -11,6 +11,7 @@ import { DocumentComponent } from './document/document.component';
 import { MenuComponent } from './menu/menu.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     ErrorComponent,
     DocumentComponent,
     MenuComponent,
-    LogoutComponent
+    LogoutComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertDataService } from '../service/data/alert-data.service';
+import { Router } from '@angular/router';
 
 export class Alert {
   constructor(
@@ -19,7 +20,7 @@ export class DocumentComponent implements OnInit {
   alerts: Alert[];
   message: string;
 
-  constructor(private alertService: AlertDataService) {}
+  constructor(private alertService: AlertDataService, private router: Router) {}
 
   ngOnInit(): void {
     this.refreshAlerts();
@@ -37,5 +38,9 @@ export class DocumentComponent implements OnInit {
     });
 
     this.refreshAlerts();
+  }
+
+  updateAlert(id) {
+    this.router.navigate(['alerts', id])
   }
 }

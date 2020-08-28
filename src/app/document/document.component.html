@@ -9,7 +9,8 @@
                 <th>description</th>
                 <th>Target Date</th>
                 <th>Is Completed?</th>
-                <th>Actions</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
                 <td>{{alert.description}}</td>
                 <td>{{alert.targetDate | date | uppercase}}</td>
                 <td>{{alert.done}}</td>
+                <td><button (click)="updateAlert(alert.id)" class="btn btn-success">Update</button></td>
                 <td><button (click)="deleteAlert(alert.id)" class="btn btn-warning">Delete</button></td>
             </tr>
         </tbody>
