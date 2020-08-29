@@ -6,9 +6,7 @@ import { Alert } from 'src/app/document/document.component';
   providedIn: 'root',
 })
 export class AlertDataService {
-  constructor(
-    private http:HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
   retrieveAllAlerts(username) {
     return this.http.get<Alert[]>(
@@ -16,7 +14,15 @@ export class AlertDataService {
     );
   }
 
+  retrieveAlert(username, id) {
+    return this.http.get<Alert>(
+      `http://localhost:8081/users/${username}/alerts/${id}`
+    );
+  }
+
   deleteAlert(username, id) {
-    return this.http.delete(`http://localhost:8081/users/${username}/alerts/${id}`)
+    return this.http.delete(
+      `http://localhost:8081/users/${username}/alerts/${id}`
+    );
   }
 }
