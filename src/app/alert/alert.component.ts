@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertDataService } from '../service/data/alert-data.service';
 import { Alert } from '../document/document.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-alert',
@@ -14,7 +14,8 @@ export class AlertComponent implements OnInit {
 
   constructor(
     private alertService: AlertDataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -25,5 +26,11 @@ export class AlertComponent implements OnInit {
       .subscribe((data) => (this.alert = data));
   }
 
-  saveAlert() {}
+  saveAlert() {
+    this.alertService
+      .updateTodo('kevin', this.id, this.alert)
+      .subscribe((data) => {
+        this.router.navigate(['document']);
+      });
+  }
 }
