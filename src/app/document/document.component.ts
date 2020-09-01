@@ -43,4 +43,8 @@ export class DocumentComponent implements OnInit {
   updateAlert(id) {
     this.router.navigate(['alerts', id])
   }
+
+  addAlert() {
+    this.router.navigate(['alerts', -1])
+  }
 }

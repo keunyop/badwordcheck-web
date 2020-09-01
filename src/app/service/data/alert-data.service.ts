@@ -26,9 +26,16 @@ export class AlertDataService {
     );
   }
 
-  updateTodo(username, id, alert) {
+  updateAlert(username, id, alert) {
     return this.http.put(
       `http://localhost:8081/users/${username}/alerts/${id}`,
+      alert
+    );
+  }
+
+  createAlert(username, alert) {
+    return this.http.post(
+      `http://localhost:8081/users/${username}/alerts`,
       alert
     );
   }
