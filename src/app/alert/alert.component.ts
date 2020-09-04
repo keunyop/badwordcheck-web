@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertDataService } from '../service/data/alert-data.service';
 import { Alert } from '../document/document.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BasicAuthenticationService } from '../service/basic-authentication.service';
 
 @Component({
   selector: 'app-alert',
@@ -15,7 +16,8 @@ export class AlertComponent implements OnInit {
   constructor(
     private alertService: AlertDataService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private basicAuthenticationService: BasicAuthenticationService
   ) {}
 
   ngOnInit(): void {
@@ -24,26 +26,24 @@ export class AlertComponent implements OnInit {
 
     if (this.id != -1) {
       this.alertService
-        .retrieveAlert('kevin', this.id)
+        .retrieveAlert(this.basicAuthenticationService.getAuthenticatedUser(), this.id)
         .subscribe((data) => (this.alert = data));
     }
   }
 
   saveAlert() {
+    let username = this.basicAuthenticationService.getAuthenticatedUser();
+
     if (this.id == -1) {
-      this.alertService
-      .createAlert('kevin', this.alert)
-      .subscribe((data) => {
+      this.alertService.createAlert(username, this.alert).subscribe((data) => {
         this.router.navigate(['document']);
       });
-
     } else {
       this.alertService
-      .updateAlert('kevin', this.id, this.alert)
-      .subscribe((data) => {
-        this.router.navigate(['document']);
-      });
+        .updateAlert(username, this.id, this.alert)
+        .subscribe((data) => {
+          this.router.navigate(['document']);
+        });
     }
-   
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertDataService } from '../service/data/alert-data.service';
 import { Router } from '@angular/router';
+import { BasicAuthenticationService } from '../service/basic-authentication.service';
 
 export class Alert {
   constructor(
@@ -20,31 +21,39 @@ export class DocumentComponent implements OnInit {
   alerts: Alert[];
   message: string;
 
-  constructor(private alertService: AlertDataService, private router: Router) {}
+  constructor(
+    private alertService: AlertDataService,
+    private router: Router,
+    private basicAuthenticationService: BasicAuthenticationService
+  ) {}
 
   ngOnInit(): void {
     this.refreshAlerts();
   }
 
   refreshAlerts() {
-    this.alertService.retrieveAllAlerts('kevin').subscribe((response) => {
-      this.alerts = response;
-    });
+    this.alertService
+      .retrieveAllAlerts(this.basicAuthenticationService.getAuthenticatedUser())
+      .subscribe((response) => {
+        this.alerts = response;
+      });
   }
 
   deleteAlert(id) {
-    this.alertService.deleteAlert('kevin', id).subscribe((response) => {
-      this.message = `Delete of Alert ${id} Successful!`;
-    });
+    this.alertService
+      .deleteAlert(this.basicAuthenticationService.getAuthenticatedUser(), id)
+      .subscribe((response) => {
+        this.message = `Delete of Alert ${id} Successful!`;
+      });
 
     this.refreshAlerts();
   }
 
   updateAlert(id) {
-    this.router.navigate(['alerts', id])
+    this.router.navigate(['alerts', id]);
   }
 
   addAlert() {
-    this.router.navigate(['alerts', -1])
+    this.router.navigate(['alerts', -1]);
   }
 }
