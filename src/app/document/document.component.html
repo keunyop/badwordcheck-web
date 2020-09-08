@@ -1,36 +1,45 @@
 <div class="container">
-    <textarea name="document-editor" cols="30" rows="5" placeholder="여기에 텍스트를 입력하거나 붙여(Ctrl + V) 넣으세요."></textarea>
-</div>
-
-<h1>All alerts</h1>
-
-<div class="alert alert-success" *ngIf='message'>{{message}}</div>
-
-
-
-<div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>description</th>
-                <th>Target Date</th>
-                <th>Is Completed?</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let alert of alerts">
-                <td>{{alert.description}}</td>
-                <td>{{alert.targetDate | date | uppercase}}</td>
-                <td>{{alert.done}}</td>
-                <td><button (click)="updateAlert(alert.id)" class="btn btn-success">Update</button></td>
-                <td><button (click)="deleteAlert(alert.id)" class="btn btn-warning">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
-
     <div class="row">
-        <td><button (click)="addAlert()" class="btn btn-success">Add</button></td>
+        <div class="col">
+            <textarea name="document-editor" cols="50" rows="10" placeholder="여기에 텍스트를 입력하거나 붙여(Ctrl + V) 넣으세요."></textarea>
+        </div>
+        <div class="col">
+            <h1>All alerts</h1>
+            <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>description</th>
+                        <th>Target Date</th>
+                        <th>Is Completed?</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let alert of alerts">
+                        <td>{{alert.description}}</td>
+                        <td>{{alert.targetDate | date | uppercase}}</td>
+                        <td>{{alert.done}}</td>
+                        <td><button (click)="updateAlert(alert.id)" class="btn btn-success">Update</button></td>
+                        <td><button (click)="deleteAlert(alert.id)" class="btn btn-warning">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div class="row">
+                <td><button (click)="addAlert()" class="btn btn-success">Add</button></td>
+            </div>
+        </div>
     </div>
+    
 </div>
+
+
+
+
+
+
+
+    
