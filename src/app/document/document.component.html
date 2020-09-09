@@ -1,10 +1,15 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <textarea name="document-editor" cols="50" rows="10" placeholder="여기에 텍스트를 입력하거나 붙여(Ctrl + V) 넣으세요."></textarea>
+            <textarea name="document-editor" cols="50" rows="10" placeholder="여기에 텍스트를 입력하거나 붙여(Ctrl + V) 넣으세요.">
+            </textarea>
         </div>
         <div class="col">
-            <h1>All alerts</h1>
+            <button (click)="checkBadWords()" class="btn btn-success">검사</button>
+        </div>
+        <div class="col">
+            <div *ngIf='alertTitle'>{{alertTitle}}</div>
+            <div *ngIf='alertMessage'>{{alertMessage}}</div>
             <div class="alert alert-success" *ngIf='message'>{{message}}</div>
 
             <table class="table">
@@ -27,19 +32,11 @@
                     </tr>
                 </tbody>
             </table>
-        
+
             <div class="row">
                 <td><button (click)="addAlert()" class="btn btn-success">Add</button></td>
             </div>
         </div>
     </div>
-    
+
 </div>
-
-
-
-
-
-
-
-    

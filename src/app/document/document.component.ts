@@ -19,6 +19,8 @@ export class Alert {
 })
 export class DocumentComponent implements OnInit {
   alerts: Alert[];
+  alertTitle: string;
+  alertMessage: string;
   message: string;
 
   constructor(
@@ -28,7 +30,9 @@ export class DocumentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.refreshAlerts();
+    // this.refreshAlerts();
+    this.alertTitle = '검사할 문서가 없습니다.';
+    this.alertMessage = '블로그 금칙어 결과를 보려면 문서를 작성해 주세요.';
   }
 
   refreshAlerts() {
@@ -55,5 +59,10 @@ export class DocumentComponent implements OnInit {
 
   addAlert() {
     this.router.navigate(['alerts', -1]);
+  }
+
+  checkBadWords() {
+    this.alertTitle = 'All Alerts';
+    this.alertMessage = '';
   }
 }

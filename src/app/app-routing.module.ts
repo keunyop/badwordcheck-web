@@ -9,7 +9,7 @@ import { RouteGuardService } from './service/route-guard.service';
 import { AlertComponent } from './alert/alert.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: DocumentComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'welcome/:name',
