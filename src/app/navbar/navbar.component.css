@@ -1,0 +1,7 @@
+/* Sticky header styles
+-------------------------------------------------- */
+
+header {
+  /* Margin bottom by header height */
+  margin-bottom: 30px;
+}
