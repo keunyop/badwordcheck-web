@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertDataService } from '../service/data/alert-data.service';
 import { Router } from '@angular/router';
 import { BasicAuthenticationService } from '../service/basic-authentication.service';
-
+import * as autosize from 'autosize';
 
 export class Alert {
   constructor(
@@ -23,6 +23,7 @@ export class DocumentComponent implements OnInit {
   alertTitle: string;
   alertMessage: string;
   message: string;
+  documentContents: string;
 
   constructor(
     private alertService: AlertDataService,
@@ -67,8 +68,7 @@ export class DocumentComponent implements OnInit {
     this.alertMessage = '';
   }
 
-  editorAutoSize() {
-    console.log("editorAutoSizing");
-    this.autosize(document.querySelectorAll('textarea'));
+  resizeDocumentEditor() {
+    autosize(document.getElementsByName("document-editor"));
   }
 }

@@ -1,10 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <textarea ng-change="autosize()"></textarea>
-
-            <textarea name="document-editor" class="form-control" placeholder="여기에 텍스트를 입력하거나 붙여 넣으세요. (Ctrl + V)"
-                style="border:none; outline:none; overflow:hidden; resize:none; height:150px"></textarea>
+            <textarea name="document-editor" class="form-control" [(ngModel)]="documentContents"
+                (ngModelChange)="resizeDocumentEditor()" placeholder="여기에 텍스트를 입력하거나 붙여 넣으세요. (Ctrl + V)"
+                style="border:none; outline:none; overflow:hidden; resize:none"></textarea>
         </div>
         <div class="col" style="border:1px solid green">
             <button (click)="checkBadWords()" class="btn btn-success">검사</button>
