@@ -3,6 +3,7 @@ import { AlertDataService } from '../service/data/alert-data.service';
 import { Router } from '@angular/router';
 import { BasicAuthenticationService } from '../service/basic-authentication.service';
 
+
 export class Alert {
   constructor(
     public id: number,
@@ -64,5 +65,10 @@ export class DocumentComponent implements OnInit {
   checkBadWords() {
     this.alertTitle = 'All Alerts';
     this.alertMessage = '';
+  }
+
+  editorAutoSize() {
+    console.log("editorAutoSizing");
+    this.autosize(document.querySelectorAll('textarea'));
   }
 }
