@@ -4,10 +4,10 @@
             <textarea name="document-editor" class="form-control" [(ngModel)]="documentContents"
                 (ngModelChange)="resizeDocumentEditor()" placeholder="여기에 텍스트를 입력하거나 붙여 넣으세요. (Ctrl + V)"
                 style="border:none; outline:none; overflow:hidden; resize:none"></textarea>
-        </div>
-        <div class="col" style="border:1px solid green">
-            <button (click)="checkBadWords()" class="btn btn-success">검사</button>
 
+
+        </div>
+        <div class="col">
             <div *ngIf='alertTitle'>{{alertTitle}}</div>
             <div *ngIf='alertMessage'>{{alertMessage}}</div>
             <div class="alert alert-success" *ngIf='message'>{{message}}</div>
@@ -39,3 +39,20 @@
         </div>
     </div>
 </div>
+
+<footer>
+    <nav class="navbar fixed-bottom navbar-expand-sm bg-white">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <div class="nav-link disabled">1230 words</div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link disabled">1234 characters</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</footer>
