@@ -24,6 +24,8 @@ export class DocumentComponent implements OnInit {
   alertMessage: string;
   message: string;
   documentContents: string;
+  docTextLength: number;
+  typingCount: number;
 
   constructor(
     private alertService: AlertDataService,
@@ -35,6 +37,8 @@ export class DocumentComponent implements OnInit {
     // this.refreshAlerts();
     this.alertTitle = '검사할 문서가 없습니다.';
     this.alertMessage = '블로그 금칙어 결과를 보려면 문서를 작성해 주세요.';
+    this.docTextLength = 0;
+    this.typingCount = 0;
   }
 
   refreshAlerts() {
@@ -63,12 +67,27 @@ export class DocumentComponent implements OnInit {
     this.router.navigate(['alerts', -1]);
   }
 
-  checkBadWords() {
-    this.alertTitle = 'All Alerts';
-    this.alertMessage = '';
+  monitorDocumentEditor() {
+    this.resizeDocumentEditor();
+
+    if (
+      this.documentContents.length - this.docTextLength > 10 ||
+      this.docTextLength - this.documentContents.length > 10 ||
+      ++this.typingCount > 5
+    ) {
+      this.checkBadWords();
+      this.typingCount = 0;
+    }
+
+    this.docTextLength = this.documentContents.length;
   }
 
   resizeDocumentEditor() {
-    autosize(document.getElementsByName("document-editor"));
+    autosize(document.getElementsByName('document-editor'));
+  }
+
+  checkBadWords() {
+    this.alertTitle = 'All Alerts';
+    this.alertMessage = '';
   }
 }
