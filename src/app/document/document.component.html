@@ -5,7 +5,10 @@
                 <textarea name="document-editor" class="form-control" [(ngModel)]="documentContents"
                     (ngModelChange)="monitorDocumentEditor()" placeholder="여기에 텍스트를 입력하거나 붙여 넣으세요. (Ctrl + V)"
                     style="border:none; outline:none; overflow:hidden; resize:none"></textarea>
-                <button class="btn btn-success" (click)="checkBadWords()" *ngIf='documentContents'>검사</button>
+                    
+                <button class="btn" (click)="checkBadWords()" *ngIf='documentContents'>
+                    <img src="assets/img/icon48.png" height="24">
+                </button>
             </div>
         </div>
         <div class="col">
