@@ -1,4 +1,13 @@
 footer {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
-  }
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.textarea-container {
+  position: relative;
+}
+.textarea-container button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

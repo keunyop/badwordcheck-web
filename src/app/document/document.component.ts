@@ -76,7 +76,6 @@ export class DocumentComponent implements OnInit {
       ++this.typingCount > 5
     ) {
       this.checkBadWords();
-      this.typingCount = 0;
     }
 
     this.docTextLength = this.documentContents.length;
@@ -89,5 +88,6 @@ export class DocumentComponent implements OnInit {
   checkBadWords() {
     this.alertTitle = 'All Alerts';
     this.alertMessage = '';
+    this.typingCount = 0;
   }
 }
