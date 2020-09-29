@@ -35,8 +35,8 @@ export class DocumentComponent implements OnInit {
 
   ngOnInit(): void {
     // this.refreshAlerts();
-    this.alertTitle = '검사할 문서가 없습니다.';
-    this.alertMessage = '블로그 금칙어 결과를 보려면 문서를 작성해 주세요.';
+    this.alertTitle = '검사할 본문이 없습니다.';
+    this.alertMessage = '블로그 금지어 결과를 보려면 본문을 작성해 주세요.';
     this.docTextLength = 0;
     this.typingCount = 0;
   }

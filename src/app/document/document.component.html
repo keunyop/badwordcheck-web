@@ -3,7 +3,7 @@
         <div class="col">
             <div class="textarea-container">
                 <textarea name="document-editor" class="form-control" [(ngModel)]="documentContents"
-                    (ngModelChange)="monitorDocumentEditor()" placeholder="여기에 텍스트를 입력하거나 붙여 넣으세요. (Ctrl + V)"
+                    (ngModelChange)="monitorDocumentEditor()" placeholder="여기에 본문을 입력하거나 붙여 넣으세요. (Ctrl + V)"
                     style="border:none; outline:none; overflow:hidden; resize:none"></textarea>
 
                 <button class="btn" (click)="checkBadWords()" *ngIf='documentContents'>
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col">
-            <div *ngIf='alertTitle'>{{alertTitle}}</div>
+            <div class="alert-title" *ngIf='alertTitle'>{{alertTitle}}</div>
             <div *ngIf='alertMessage'>{{alertMessage}}</div>
             <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
 
