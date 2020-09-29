@@ -5,7 +5,7 @@
                 <textarea name="document-editor" class="form-control" [(ngModel)]="documentContents"
                     (ngModelChange)="monitorDocumentEditor()" placeholder="여기에 텍스트를 입력하거나 붙여 넣으세요. (Ctrl + V)"
                     style="border:none; outline:none; overflow:hidden; resize:none"></textarea>
-                    
+
                 <button class="btn" (click)="checkBadWords()" *ngIf='documentContents'>
                     <img src="assets/img/icon48.png" height="24">
                 </button>
@@ -14,9 +14,9 @@
         <div class="col">
             <div *ngIf='alertTitle'>{{alertTitle}}</div>
             <div *ngIf='alertMessage'>{{alertMessage}}</div>
-            <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+            <!-- <div class="alert alert-success" *ngIf='message'>{{message}}</div> -->
 
-            <table class="table">
+            <!-- <table class="table">
                 <thead>
                     <tr>
                         <th>description</th>
@@ -35,11 +35,11 @@
                         <td><button (click)="deleteAlert(alert.id)" class="btn btn-warning">Delete</button></td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
 
-            <div class="row">
+            <!-- <div class="row">
                 <td><button (click)="addAlert()" class="btn btn-success">Add</button></td>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

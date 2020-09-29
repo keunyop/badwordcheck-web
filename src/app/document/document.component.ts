@@ -22,7 +22,7 @@ export class DocumentComponent implements OnInit {
   alerts: Alert[];
   alertTitle: string;
   alertMessage: string;
-  message: string;
+  // message: string;
   documentContents: string;
   docTextLength: number;
   typingCount: number;
@@ -49,23 +49,23 @@ export class DocumentComponent implements OnInit {
       });
   }
 
-  deleteAlert(id) {
-    this.alertService
-      .deleteAlert(this.basicAuthenticationService.getAuthenticatedUser(), id)
-      .subscribe((response) => {
-        this.message = `Delete of Alert ${id} Successful!`;
-      });
+  // deleteAlert(id) {
+  //   this.alertService
+  //     .deleteAlert(this.basicAuthenticationService.getAuthenticatedUser(), id)
+  //     .subscribe((response) => {
+  //       this.message = `Delete of Alert ${id} Successful!`;
+  //     });
 
-    this.refreshAlerts();
-  }
+  //   this.refreshAlerts();
+  // }
 
-  updateAlert(id) {
-    this.router.navigate(['alerts', id]);
-  }
+  // updateAlert(id) {
+  //   this.router.navigate(['alerts', id]);
+  // }
 
-  addAlert() {
-    this.router.navigate(['alerts', -1]);
-  }
+  // addAlert() {
+  //   this.router.navigate(['alerts', -1]);
+  // }
 
   monitorDocumentEditor() {
     this.resizeDocumentEditor();
