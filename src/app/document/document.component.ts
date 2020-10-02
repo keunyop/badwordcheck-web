@@ -41,13 +41,13 @@ export class DocumentComponent implements OnInit {
     this.typingCount = 0;
   }
 
-  refreshAlerts() {
-    this.alertService
-      .retrieveAllAlerts(this.basicAuthenticationService.getAuthenticatedUser())
-      .subscribe((response) => {
-        this.alerts = response;
-      });
-  }
+  // refreshAlerts() {
+  //   this.alertService
+  //     .retrieveAllAlerts(this.basicAuthenticationService.getAuthenticatedUser())
+  //     .subscribe((response) => {
+  //       this.alerts = response;
+  //     });
+  // }
 
   // deleteAlert(id) {
   //   this.alertService
@@ -89,5 +89,9 @@ export class DocumentComponent implements OnInit {
     this.alertTitle = 'All Alerts';
     this.alertMessage = '';
     this.typingCount = 0;
+
+    this.alertService.checkBadWords().subscribe((response) => {
+      this.alerts = response;
+    });
   }
 }

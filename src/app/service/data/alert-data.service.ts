@@ -28,4 +28,8 @@ export class AlertDataService {
   createAlert(username, alert) {
     return this.http.post(`${API_URL}/users/${username}/alerts`, alert);
   }
+
+  checkBadWords() {
+    return this.http.get<Alert[]>(`${API_URL}/alerts`);
+  }
 }
