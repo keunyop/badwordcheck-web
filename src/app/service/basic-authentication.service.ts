@@ -28,24 +28,24 @@ export class BasicAuthenticationService {
       );
   }
 
-  executeAuthenticationService(username, password) {
-    let basicAuthHeaderString =
-      'Basic ' + window.btoa(username + ':' + password);
+  // executeAuthenticationService(username, password) {
+  //   let basicAuthHeaderString =
+  //     'Basic ' + window.btoa(username + ':' + password);
 
-    let headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString,
-    });
+  //   let headers = new HttpHeaders({
+  //     Authorization: basicAuthHeaderString,
+  //   });
 
-    return this.http
-      .get<AuthenticationBean>(`${API_URL}/basicauth`, { headers })
-      .pipe(
-        map((data) => {
-          sessionStorage.setItem(AUTHENTICATED_USER, username);
-          sessionStorage.setItem(TOKEN, basicAuthHeaderString);
-          return data;
-        })
-      );
-  }
+  //   return this.http
+  //     .get<AuthenticationBean>(`${API_URL}/basicauth`, { headers })
+  //     .pipe(
+  //       map((data) => {
+  //         sessionStorage.setItem(AUTHENTICATED_USER, username);
+  //         sessionStorage.setItem(TOKEN, basicAuthHeaderString);
+  //         return data;
+  //       })
+  //     );
+  // }
 
   getAuthenticatedUser() {
     return sessionStorage.getItem(AUTHENTICATED_USER);
