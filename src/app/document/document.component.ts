@@ -13,6 +13,13 @@ export class Alert {
   ) {}
 }
 
+export class CheckResult {
+  constructor(
+    public badwords: Map<String, number>,
+    public keywords: Map<string, number>
+  ) {}
+}
+
 @Component({
   selector: 'app-document',
   templateUrl: './document.component.html',
@@ -20,6 +27,8 @@ export class Alert {
 })
 export class DocumentComponent implements OnInit {
   alerts: Alert[];
+  badwords: Map<String, number>;
+  keywords: Map<String, number>;
   alertTitle: string;
   alertMessage: string;
   // message: string;
@@ -90,9 +99,9 @@ export class DocumentComponent implements OnInit {
     this.alertMessage = '';
     this.typingCount = 0;
 
-    this.alertService.checkBadWords(this.documentContents).subscribe((response) => {
-      // this.alerts = response;
-      console.log(response)
+    this.alertService.checkBadWords(this.documentContents).subscribe((response: CheckResult) => {
+      this.badwords = response.badwords;
+      this.keywords = response.keywords;
     });
 
   }
