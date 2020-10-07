@@ -50,6 +50,21 @@
                     </tr>
                 </tbody>
             </table>
+
+            <table class="table" *ngIf='keywords'>
+                <thead>
+                    <tr>
+                        <th>키워드</th>
+                        <th>개수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let keyword of keywords | keyvalue">
+                        <td>{{keyword.key}}</td>
+                        <td>{{keyword.value}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
