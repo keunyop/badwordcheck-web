@@ -15,7 +15,7 @@
             <div class="alert-title" *ngIf='alertTitle'>{{alertTitle}}</div>
             <div *ngIf='alertMessage'>{{alertMessage}}</div>
 
-            <table class="table" *ngIf='alerts'>
+            <!-- <table class="table" *ngIf='alerts'>
                 <thead>
                     <tr>
                         <th>description</th>
@@ -34,7 +34,7 @@
                         <td><button (click)="deleteAlert(alert.id)" class="btn btn-warning">Delete</button></td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
 
             <table class="table" *ngIf='badwords'>
                 <thead>
