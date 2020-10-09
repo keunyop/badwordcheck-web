@@ -35,6 +35,7 @@ export class DocumentComponent implements OnInit {
   documentContents: string;
   docTextLength: number;
   typingCount: number;
+  badwordCount: number;
 
   constructor(
     private alertService: AlertDataService,
@@ -95,14 +96,16 @@ export class DocumentComponent implements OnInit {
   }
 
   checkBadWords() {
-    this.alertTitle = 'All Alerts';
+    this.alertTitle = '금지어 ' + this.badwordCount + '개';
     this.alertMessage = '';
     this.typingCount = 0;
 
-    this.alertService.checkBadWords(this.documentContents).subscribe((response: CheckResult) => {
-      this.badwords = response.badwords;
-      this.keywords = response.keywords;
-    });
-
+    this.alertService
+      .checkBadWords(this.documentContents)
+      .subscribe((response: CheckResult) => {
+        this.badwords = response.badwords;
+        this.badwordCount = Object.keys(this.badwords).length;
+        this.keywords = response.keywords;
+      });
   }
 }
