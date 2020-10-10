@@ -96,7 +96,8 @@ export class DocumentComponent implements OnInit {
   }
 
   checkBadWords() {
-    this.alertTitle = '금지어 ' + this.badwordCount + '개';
+    // this.alertTitle = '금지어 ' + this.badwordCount + '개';
+    this.alertTitle = `금지어 ${this.badwordCount}개`;
     this.alertMessage = '';
     this.typingCount = 0;
 
