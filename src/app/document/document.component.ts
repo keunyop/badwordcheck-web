@@ -96,17 +96,26 @@ export class DocumentComponent implements OnInit {
   }
 
   checkBadWords() {
-    // this.alertTitle = '금지어 ' + this.badwordCount + '개';
-    this.alertTitle = `금지어 ${this.badwordCount}개`;
     this.alertMessage = '';
     this.typingCount = 0;
 
-    this.alertService
-      .checkBadWords(this.documentContents)
-      .subscribe((response: CheckResult) => {
-        this.badwords = response.badwords;
-        this.badwordCount = Object.keys(this.badwords).length;
-        this.keywords = response.keywords;
-      });
+    // this.alertService
+    //   .checkBadWords(this.documentContents)
+    //   .subscribe((response: CheckResult) => {
+    //     this.badwords = response.badwords;
+    //     this.badwordCount = Object.keys(this.badwords).length;
+    //     this.keywords = response.keywords;
+    //   });
+
+    // test code 시작
+    let badwordsMap = new Map();
+    badwordsMap.set('안녕', 2);
+    badwordsMap.set('방가', 1);
+
+    this.badwords = badwordsMap;
+    this.badwordCount = Object.keys(this.badwords).length;
+    // test code 끝
+
+    this.alertTitle = `■ 금지어 ${this.badwordCount}개`;
   }
 }
